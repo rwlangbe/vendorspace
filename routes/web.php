@@ -22,10 +22,10 @@ Route::get('current/user_name/{id}', [
 
 Route::get('/', [
    'uses' => '\vendorspace\Http\Controllers\HomeController@index',
-   'as' => 'home',
+   'as' => 'index',
 ]);
 
-Route::get('/index', [
+Route::get('/landing/index', [
    'uses' => '\vendorspace\Http\Controllers\HomeController@index',
    'as' => 'home',
 ]);
@@ -122,24 +122,24 @@ Route::get('/user/{username}',[
 	'as' => 'profile.index',
 ]);
 
-Route::get('/profile/edit', [
+Route::get('/user/profile/edit', [
    'uses' => '\vendorspace\Http\Controllers\ProfileController@getEdit',
    'as' => 'profile.edit',
    'middleware' => ['auth'],	
 ]);
 
-Route::post('/profile/edit', [
+Route::post('/user/profile/edit', [
    'uses' => '\vendorspace\Http\Controllers\ProfileController@postEdit',
    'middleware' => ['auth'],	
 ]);
 
-Route::get('/profile/edit', [
+Route::get('/user/profile/edit', [
    'uses' => '\vendorspace\Http\Controllers\ProfileController@getEdit2',
    'as' => 'profile.edit',
    'middleware' => ['auth'],  
 ]);
 
-Route::post('/profile/edit', [
+Route::post('/user/profile/edit', [
    'uses' => '\vendorspace\Http\Controllers\ProfileController@postEdit2',
    'middleware' => ['auth'],  
 ]);
@@ -193,27 +193,15 @@ Route::get('/status/{statusId}/like', [
 /**
 * Event
 */
-Route::get('/event/create', [
-   'uses' => '\vendorspace\Http\Controllers\EventController@getEventCreate',
-   'as' => 'event.createevent',
-   'middleware' => ['auth'],
-]);
-
-Route::get('/event/finder', [
-   'uses' => '\vendorspace\Http\Controllers\EventController@getEventFinder',
-   'as' => 'event.findevent',
-   'middleware' => ['auth'],
-]);
 
 Route::get('/event/calendar', [
-   'uses' => '\vendorspace\Http\Controllers\EventController@getCalendar',
-   'as' => 'event.calendar',
-   'middleware' => ['auth'],
+   'uses' => '\vendorspace\Http\Controllers\EventsController@getCalendar',
 ]);
 
-Route::post('/event/calendar', [
-   'uses' => '\vendorspace\Http\Controllers\EventController@postCalendar',
-   'as' => 'event.calendar',
-   'middleware' => ['auth'],
+Route::get('/event/delete/{id}', [
+   'uses' => '\vendorspace\Http\Controllers\EventsController@deleteEvent',
 ]);
 
+Route::get('/event/dateUpdate/{oldDate}/{title}/{newDate}', [
+   'uses' => '\vendorspace\Http\Controllers\EventsController@updateNewDate',
+]);

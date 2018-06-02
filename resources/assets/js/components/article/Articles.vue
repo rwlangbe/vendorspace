@@ -37,7 +37,7 @@
 		},
 
 		methods: {
-			deleteProduct (article) {
+			deleteArticle (article) {
 				swal({
 					title:"Are you sure?",
 					text: "Deleted articles cannot be recovered.",
@@ -67,8 +67,4 @@
 
 </script>
 <style>
-	.articlediv {
-		border-style: outset;
-		border-width: 12px;
-	}
 </style>

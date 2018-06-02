@@ -22,12 +22,12 @@ class FriendController extends Controller
 	{
 		$user = User::where('username', $username)->first();
 		if (!$user) {
-			return redirect()->route('home')
+			return redirect()->route('index')
 				->with('info', 'User not found.');
 		}
 
 		if (Auth::user()->id === $user->id) {
-			return redirect()->route('home');
+			return redirect()->route('landing.index');
 		}
 
 		if (Auth::user()->hasFriendRequestsPending($user) ||
@@ -55,12 +55,12 @@ class FriendController extends Controller
 		$user = User::where('username', $username)->first();
 
 		if (!$user) {
-			return redirect()->route('home')
+			return redirect()->route('index')
 				->with('info', 'User not found.');
 		}
 
 		if (!Auth::user()->hasFriendRequestsReceived($user)) {
-			return redirect()->route('home');
+			return redirect()->route('index');
 		}
 
 		Auth::user()->acceptFriendRequest($user);

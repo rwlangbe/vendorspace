@@ -51,7 +51,7 @@ class VerifyController extends Controller
 
 		$user->sendResetPasswordEmail($user);
 
-        return redirect()->route('home')->with('info', 'Password Reset Sent.');
+        return redirect()->route('index')->with('info', 'Password Reset Sent.');
     }
 
     public function getPreset()

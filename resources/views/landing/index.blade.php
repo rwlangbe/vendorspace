@@ -1,14 +1,14 @@
 @extends('templates.default')
 
 @section('content')
-	<div class="row col-lg-15 top-margin80">
-		<div class="col-lg-3 top-margin80 left-column">
+	<div class="row col-lg-15">
+		<div class="col-lg-3 top-margin left-column">
 			<p>Quick links</p>
 			<a href="{{ route('event.createevent') }}" class="btn btn-default">Create an event</a>
 			<a href="{{ route('event.findevent') }}" class="btn btn-default">Find an event</a>
 			<a href="{{ route('event.calendar') }}" class="btn btn-default">Calendar</a>
 		</div>
-		<div class="col-lg-9 top-margin80">
+		<div class="col-lg-9 top-margin windowed">
 			<form role="form" action="{{ route('status.post') }}" method="post">
 				<div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
 					<textarea placeholder="what's up {{ Auth::user()
@@ -42,7 +42,6 @@
 						</div>
 					</div>
 				@endforeach
-
 				{!! $statuses->render() !!}
 			@endif
 		</div>

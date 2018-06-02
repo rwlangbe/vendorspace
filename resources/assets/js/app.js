@@ -8,6 +8,9 @@ import Vue from 'vue'
 import Router from './routes.js'
 import VueResource from 'vue-resource'
 import VeeValidate from 'vee-validate'
+import 'vue2-event-calendar/default.css'
+import Calendar from 'vue2-event-calendar'
+
 
 
 window.Vue = require('vue');
@@ -15,6 +18,7 @@ require('./bootstrap');
 
 Vue.use(VueResource);
 Vue.use(VeeValidate);
+
 
 Vue.http.options.root = "http://localhost:8000"
 
@@ -33,7 +37,11 @@ Vue.http.interceptors.push((request, next) => {
 	})
 })
 
+Vue.component('Calendar', Calendar)
+
 const app = new Vue({
     el: '#app',
-    router: Router,  
+    router: Router,
+    Calendar, Calendar,
 });
+

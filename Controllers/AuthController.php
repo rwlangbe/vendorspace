@@ -32,7 +32,7 @@ class AuthController extends Controller
 
          $user->sendVerificationEmail($user);
 
-         return redirect()->route('home')->with('info', 
+         return redirect()->route('index')->with('info', 
             'Verification email sent. Follow the link in your email to verify your identity.');
     }
 
@@ -55,7 +55,7 @@ class AuthController extends Controller
                     'Sign in failed.  Enter your username to log in.');
         	}
 
-        	return redirect()->route('home');
+        	return redirect()->route('landing.index');
         }
 
         elseif (isset($_POST['reset'])) {
@@ -67,6 +67,6 @@ class AuthController extends Controller
     public function getSignout()
     {
     	Auth::logout();
-    	return redirect()->route('home')->with('info', 'signed out successfully.');
+    	return redirect()->route('index')->with('info', 'signed out successfully.');
     }
 }

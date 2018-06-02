@@ -18,7 +18,7 @@ class ProfileController extends Controller
 
 		$statuses = $user->statuses()->notReply()->get();
 
-		return view('profile.index')
+		return view('user.profile.index')
 			->with('user', $user)
 			->with('statuses', $statuses)
 			->with('authUserIsFriend', Auth::user()->isFriendsWith($user));
@@ -26,7 +26,7 @@ class ProfileController extends Controller
 
 	public function getEdit()
 	{
-		return view('profile.edit');
+		return view('user.profile.edit');
 	}
 
 	public function postEdit(Request $request)
@@ -52,7 +52,7 @@ class ProfileController extends Controller
 
 	public function getEdit2()
 	{
-		return view('profile.edit');
+		return view('user.profile.edit');
 	}
 
 	public function postEdit2(Request $request)

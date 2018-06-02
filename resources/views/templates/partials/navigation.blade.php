@@ -25,8 +25,8 @@
 					<li><a href="{{ route('auth.signout') }}">Sign out</a></li>
 					<li id="settings"><a href="{{ route('profile.edit') }}" >Settings</a></li>
 				@else
-					<li><a href="{{ route('auth.signup') }}">Sign up</a></li>
-					<li><a href="{{ route('auth.signin') }}">Sign in</a></li>
+					<li><a href="{{ route('auth.signin') }}">login</a></li>
+					<li><a href="{{ route('auth.signup') }}">register</a></li>	
 				@endif
 			</ul>
 		</div>

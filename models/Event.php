@@ -11,7 +11,9 @@ class Event extends Model
     	'title',
     	'start_date',
     	'end_date',
-    	'notes',
+        'location',
+        'description',
+        'state',
     ];
 
     public function user()

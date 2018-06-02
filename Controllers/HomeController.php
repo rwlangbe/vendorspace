@@ -17,11 +17,10 @@ class HomeController extends Controller
 			})
 			->orderBy('created_at', 'desc')
 			->paginate(10);
-
 			return view('landing.index')
 				->with('statuses', $statuses);
 		}
 
-		return view('home');
+		return redirect()->route('index');
 	}
 }

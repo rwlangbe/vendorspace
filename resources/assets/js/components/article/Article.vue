@@ -15,8 +15,7 @@
 					</a>
 					<a href="#" class="btn btn-success btn-caption">
 						Save
-					</a>
-					
+					</a>			
 					<a href="#" class="btn btn-danger" role="button" @click="$emit('delete-article')" v-if="user_id == article.user_id">
 						Delete
 					</a>
@@ -55,9 +54,4 @@
 </script>
 
 <style>
-	.btn-caption {
-		font-size:9;
-		height:27px;
-		width:60px;
-	}
 </style>

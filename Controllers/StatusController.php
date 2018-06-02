@@ -20,7 +20,7 @@ class StatusController extends Controller
 		]);
 
 		return redirect()
-			->route('home')
+			->route('landing.index')
 			->with('info', 'Status updated.');
 	}
 
@@ -35,12 +35,12 @@ class StatusController extends Controller
 		$status = Status::notReply()->find($statusId);
 
 		if (!$status) {
-			return redirect()->route('home');
+			return redirect()->route('index');
 		}
 
 		if (!Auth::user()->isFriendsWith($status->user) 
 			&& Auth::user()->id !== $status->user->id) {
-			return redirect()->route('home');
+			return redirect()->route('index');
 		}
 
 		$reply = Status::create([
@@ -56,11 +56,11 @@ class StatusController extends Controller
 	{
 		$status = Status::find($statusId);
 		if (!$status) {
-			return redirect()->route('home');
+			return redirect()->route('index');
 		}
 
 		if (!Auth::user()->isFriendsWith($status->user)){
-			return redirect()->route('home');
+			return redirect()->route('index');
 		}
 
 		if (Auth::user()->hasLikedStatus($status)){

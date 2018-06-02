@@ -10,7 +10,7 @@
             </h3>    
         </div>
         <div class="row col-lg-16">
-            <div class="left column col-lg-8">
+            <div class="left column col-lg-12">
                 <div class="viewport">
                     <a href="{{ route('guest.vendorarea') }}"><h4 class="center">Vendors</h4></a>
                     <hr>
@@ -29,19 +29,15 @@
                     <p>Create a profile page and list your talents.  </p>
                 </div>
             </div>
-        	<div class="middle column col-lg-8">
-                <div>
+        	<div class="middle column col-lg-12">
+                <div id="middle_list">
                     <ul>
-                        <h3>Create a profile to showcase your talents.</h3>
-                        <h3>Create an event and sign up vendors in one place.</h3>
-                        <h3>Find events and connect with other performers.</h3>
+                        <h4>Create a profile to showcase your talents.</h4>
+                        <h4>Create an event and sign up vendors in one place.</h4>
+                        <h4>Find events and connect with other performers.</h4>
                     </ul>
                 </div>
             </div>
         </div>    
     </div>
-    <div class="border"></div>
-    <video class="video_background"  autoplay muted loop >  
-        <source src="{{ URL::asset('video\rain.mp4') }}" type="video/mp4">
-    </video> 
 @stop
